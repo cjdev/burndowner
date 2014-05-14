@@ -1,0 +1,28 @@
+<html>
+        <head>
+        <script src='require-config.js' type='text/javascript'></script>
+        <script type="text/javascript" src="lib/require/require.js"></script>
+        <link href="burndowner.css" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" href="lib/qunit/qunit.css">
+        
+        <script>
+        
+require(["burnDowner", "jquery"], function(burnDowner){
+     try{
+        burnDowner.burnDown(JSON.parse(decodeURIComponent(window.location.search.split('data=')[1])), $("#burn-downer-container"));
+     }catch(e){}
+     
+     $("#burn").click(function(){
+        console.log("burning")
+        burnDowner.burnDown(JSON.parse($("#json").val()), $("#burn-downer-container"));
+     })
+
+});
+        </script>
+    </head>
+    <body>
+        <div id='burn-downer-container' style="height:20em;"></div>
+        <textarea id="json" cols="200" rows="20"></textarea><button id="burn">Burrn</button>
+    </body>
+</html>
+
