@@ -13,7 +13,7 @@ require(["burnDowner", "jquery"], function(burnDowner){
      }catch(e){}
      
      $("#burn").click(function(){
-        console.log("burning")
+        $("#burn-downer-container").empty();
         burnDowner.burnDown(JSON.parse($("#json").val()), $("#burn-downer-container"));
      })
 
@@ -21,8 +21,8 @@ require(["burnDowner", "jquery"], function(burnDowner){
         </script>
     </head>
     <body>
-        <div id='burn-downer-container' style="height:20em;"></div>
         <textarea id="json" cols="200" rows="20"></textarea><button id="burn">Burrn</button>
+        <div id='burn-downer-container' style="height:20em;"></div>
     </body>
 </html>
 

@@ -50,7 +50,7 @@ define([
                 estimateStart = [i, remaining+addedScope],
                 estimateEnd = [Math.ceil((remaining+addedScope)/estimatedVelocity)+i,0];
             
-            if(remaining){ //Avoid nulls from incomplete (likely future) iterations.
+            if(!isNaN(remaining)){ //Avoid nulls from incomplete (likely future) iterations.
                 addToBarSeries("Remaining Work", [i,remaining]);
                 addToBarSeries("Added Scope", [i,addedScope]);
                 for (var key in transientWork) {

@@ -67,6 +67,20 @@ require(["burnDowner", "jquery", "qunit",], function(burnDowner){
         equal(actualData[0]["label"], "Remaining Work", "Remaining Work Object Should Be Correct");
        
     });
+    
+    test("Remaining of 0 is still remaining work", function(){
+        var sampleData = [
+                {   "iteration": "1/1/2014",
+                    "remaining":0
+                }
+            ];
+        
+        actualData = burnDowner.burnDown(sampleData);
+            
+        equal(JSON.stringify(actualData[0]["data"]), JSON.stringify([[0,0]]), "Remaining Work Object Should Be Correct");
+        equal(actualData[0]["label"], "Remaining Work", "Remaining Work Object Should Be Correct");
+       
+    });
 });
         </script>
     </head>
