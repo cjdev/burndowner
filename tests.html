@@ -81,6 +81,35 @@ require(["burnDowner", "jquery", "qunit",], function(burnDowner){
         equal(actualData[0]["label"], "Remaining Work", "Remaining Work Object Should Be Correct");
        
     });
+
+    test("Missing 'addedScope' shouldn't confuse the order of the graph", function(){
+        var sampleData = [
+        {
+            "iteration": "April 2 2014",
+            "estimatedVelocity": 30,
+            "remaining":75,
+            "transientWork":{
+               "Bugs": 0,
+               "International": 29,
+               "Other":0
+            }
+        }
+        ];
+
+        actualData = burnDowner.burnDown(sampleData);
+
+        equal(JSON.stringify(actualData[0]["data"]), JSON.stringify([[0,75]]), "Remaining Work Object Should Be Correct");
+        equal(actualData[0]["label"], "Remaining Work", "Remaining Work Object Should Be Correct");
+
+        equal(JSON.stringify(actualData[1]["data"]), JSON.stringify([[0,0]]), "New Scope Object Should Be Correct");
+        equal(actualData[1]["label"], "Added Scope", "Added Scope Object Should Be Correct");
+
+        equal(JSON.stringify(actualData[2]["data"]), JSON.stringify([[0,0]]), "Bugs Object Should Be Correct");
+        equal(actualData[2]["label"], "Bugs", "Bugs Object Should Be Correct");
+
+
+    });
+
 });
         </script>
     </head>

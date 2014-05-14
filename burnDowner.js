@@ -44,8 +44,8 @@ define([
         $(data).each(function(i, iteration){
             var name = iteration.iteration,
                 estimatedVelocity = iteration.estimatedVelocity,
-                remaining = iteration.remaining,
-                addedScope = iteration.addedScope,
+                remaining = iteration.remaining ,
+                addedScope = iteration.addedScope ? iteration.addedScope : 0,
                 transientWork = iteration.transientWork,
                 estimateStart = [i, remaining+addedScope],
                 estimateEnd = [Math.ceil((remaining+addedScope)/estimatedVelocity)+i,0];
