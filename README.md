@@ -1,6 +1,8 @@
 burndowner
 ==========
 
+[![Join the chat at https://gitter.im/cjdev/burndowner](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/cjdev/burndowner?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 Burn Down Chart Generator
 
 Use this json as a guide...
